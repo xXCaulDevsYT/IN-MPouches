@@ -17,7 +17,7 @@ use onebone\economyapi\EconomyAPI;
 class Main extends PluginBase implements Listener{
 
 	public function onEnable() : void{
-		$this->getLogger()->info("MoneyPouch by Shelly enabled");
+		$this->getLogger()->info("MoneyPouch by EmeraldAssasinYT enabled");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 
@@ -29,48 +29,48 @@ class Main extends PluginBase implements Listener{
 	 * @return bool
 	 */
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-		if(strtolower($command->getName()) === "mp"){
+		if(strtolower($command->getName()) === "infernalpouch"){
 			if(count($args) < 2){
-				$sender->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "OPE" . TextFormat::GRAY . "]" . TextFormat::GRAY . " /mp <player> <tier>");
+				$sender->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " /infernalpouch <player> <tier>");
 				return false;
 			}
-			if(!$sender->hasPermission("moneypouch.command.give")){
-				$sender->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "OPE" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You dont have permission");
+			if(!$sender->hasPermission("infernalpouch.command.give")){
+				$sender->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You dont have permission");
 				return false;
 			}
-			if($sender->hasPermission("moneypouch.command.give") || $sender->isOp()){
+			if($sender->hasPermission("infernal.command.give") || $sender->isOp()){
 				$player = $sender->getServer()->getPlayer($args[0]);
 				switch($args[1]){
 					case "tier1":
 						$t1 = Item::get(379, 101, 1);
-						$t1->setCustomName(TextFormat::GREEN . "Money Pouch " . TextFormat::GRAY . "(Right Click)");
+						$t1->setCustomName(TextFormat::GREEN . "Infernal Pouch " . TextFormat::GRAY . "(Right Click)");
 						$t1->setLore([
 							"",
-							TextFormat::GRAY . "Right Click " . TextFormat::GREEN . "to obtain money from your ",
-							TextFormat::GRAY . "tier 1" . TextFormat::GREEN . " money pouch",
+							TextFormat::GRAY . "Win " . TextFormat::GREEN . "$10,000 - $25,0000 ",
+							TextFormat::GRAY . "Tier" . TextFormat::GREEN . "I",
 							"",
-							TextFormat::GREEN . "Get " . TextFormat::GRAY . "Money Pouches " . TextFormat::GREEN . "by",
-							TextFormat::GREEN . "mining " . TextFormat::GRAY . "Relics" . TextFormat::GREEN . " and buying",
-							TextFormat::GREEN . "it from our Buycraft store",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "Infernal Network",
 							""
 						]);
-						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "OPE" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
+						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
 						$player->getInventory()->addItem($t1);
 						break;
 					case "tier2":
 						$t2 = Item::get(379, 102, 1);
-						$t2->setCustomName(TextFormat::GREEN . "Money Pouch " . TextFormat::GRAY . "(Right Click)");
+						$t2->setCustomName(TextFormat::GREEN . "Infernal Pouch " . TextFormat::GRAY . "(Right Click)");
 						$t2->setLore([
 							"",
-							TextFormat::GRAY . "Right Click " . TextFormat::GREEN . "to obtain money from your ",
-							TextFormat::GRAY . "tier 2" . TextFormat::GREEN . " money pouch",
+							TextFormat::GRAY . "Win " . TextFormat::GREEN . "$25,000 - $50,000",
+							TextFormat::GRAY . "Tier" . TextFormat::GREEN . "II",
 							"",
-							TextFormat::GREEN . "Get " . TextFormat::GRAY . "Money Pouches " . TextFormat::GREEN . "by",
-							TextFormat::GREEN . "mining " . TextFormat::GRAY . "Relics" . TextFormat::GREEN . " and buying",
-							TextFormat::GREEN . "it from our Buycraft store",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "Infernal",
 							""
 						]);
-						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "OPE" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
+						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
 						$player->getInventory()->addItem($t2);
 						break;
 				}
@@ -90,13 +90,13 @@ class Main extends PluginBase implements Listener{
 				case 101:
 					$tier1win = rand(10000, 25000);
 					EconomyAPI::getInstance()->addMoney($player, $tier1win);
-					$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "OPE" . TextFormat::GRAY . "]" . TextFormat::GRAY . TextFormat::GRAY . " You have won:" . TextFormat::BOLD . TextFormat::LIGHT_PURPLE . " $" . $tier1win);
+					$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . TextFormat::GRAY . " You have won:" . TextFormat::BOLD . TextFormat::LIGHT_PURPLE . " $" . $tier1win);
 					$player->getInventory()->removeItem(Item::get(379, 101, 1));
 					return;
 				case 102:
-					$tier2win = rand(15000, 45000);
+					$tier2win = rand(25000, 50000);
 					EconomyAPI::getInstance()->addMoney($player, $tier2win);
-					$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "OPE" . TextFormat::GRAY . "]" . TextFormat::GRAY . TextFormat::RESET . TextFormat::GRAY . " You have won:" . TextFormat::BOLD . TextFormat::LIGHT_PURPLE . " $" . $tier2win);
+					$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . TextFormat::RESET . TextFormat::GRAY . " You have won:" . TextFormat::BOLD . TextFormat::LIGHT_PURPLE . " $" . $tier2win);
 					$player->getInventory()->removeItem(Item::get(379, 102, 1));
 					return;
 			}
