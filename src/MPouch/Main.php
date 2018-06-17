@@ -73,6 +73,38 @@ class Main extends PluginBase implements Listener{
 						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
 						$player->getInventory()->addItem($t2);
 						break;
+						case "tier3":
+						$t3 = Item::get(379, 101, 1);
+						$t3->setCustomName(TextFormat::GREEN . "Infernal Pouch " . TextFormat::GRAY . "(Right Click)");
+						$t3->setLore([
+							"",
+							TextFormat::GRAY . "Win " . TextFormat::GREEN . "$50,000 - $75,0000 ",
+							TextFormat::GRAY . "Tier" . TextFormat::GREEN . "III",
+							"",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "Infernal Network",
+							""
+						]);
+						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
+						$player->getInventory()->addItem($t3);
+						break;
+						case "tier4":
+						$t4 = Item::get(379, 101, 1);
+						$t4->setCustomName(TextFormat::GREEN . "Infernal Pouch " . TextFormat::GRAY . "(Right Click)");
+						$t4->setLore([
+							"",
+							TextFormat::GRAY . "Win " . TextFormat::GREEN . "$100,000 - $125,0000 ",
+							TextFormat::GRAY . "Tier" . TextFormat::GREEN . "IIII",
+							"",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "-" . TextFormat::GRAY . "-" . TextFormat::GREEN . "-",
+							TextFormat::GREEN . "Infernal Network",
+							""
+						]);
+						$player->sendMessage(TextFormat::GRAY . "[" . TextFormat::BLUE . "IN" . TextFormat::GRAY . "]" . TextFormat::GRAY . " You have received your money pouch!");
+						$player->getInventory()->addItem($t4);
+						break;
 				}
 			}
 		}
